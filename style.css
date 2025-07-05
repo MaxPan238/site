@@ -242,8 +242,9 @@ h2 {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  margin-bottom: 15px;
   object-fit: cover;
+  margin: 0 auto 10px;
+  display: block;
 }
 
 .review-card p {
@@ -352,6 +353,18 @@ footer {
   }
 
   .arrow {
-    display: none;
+    font-size: 24px;
+    padding: 8px 12px;
+    left: 5px;
+    right: 5px;
+    top: 45%;
+  }
+
+  .arrow.left {
+    left: 0;
+  }
+
+  .arrow.right {
+    right: 0;
   }
 }
