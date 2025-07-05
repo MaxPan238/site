@@ -112,9 +112,9 @@ form button:hover {
 .slider {
   display: flex;
   overflow-x: auto;
-  gap: 20px;
   scroll-snap-type: x mandatory;
   padding-bottom: 20px;
+  justify-content: space-evenly;
 }
 
 .slide {
@@ -264,4 +264,20 @@ footer {
   form button {
     font-size: 0.9rem;
   }
+}
+.but{
+  border: none;
+  background-color:#284d36;
+  width: 90px;
+  height: 23px;
+  border-radius: 8px;
+  position: relative;
+  bottom: 5px
+}
+.p1{
+  position: relative;
+  bottom: 7px
+}
+.but:hover{
+    background-color: var(--accent);
 }
