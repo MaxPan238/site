@@ -1,56 +1,36 @@
-// toggleMenu — для мобильного бургер-меню
+// Бургер-меню
 function toggleMenu() {
-  const menu = document.getElementById("navMenu");
-  menu.classList.toggle("active");
+  const nav = document.getElementById("navMenu");
+  nav.classList.toggle("active");
 }
 
-// Автоматически закрываем меню при клике по ссылке
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById("navMenu").classList.remove("active");
-  });
-});
-
-// scrollGallery — слайдер галереи
+// Галерея (горизонтальная прокрутка)
 function scrollGallery(direction) {
   const slider = document.getElementById("gallerySlider");
-  const cardWidth = slider.querySelector('.gallery-card').offsetWidth + 20; // + gap
-  slider.scrollBy({ left: cardWidth * direction, behavior: "smooth" });
+  const card = slider.querySelector(".gallery-card");
+  if (!card) return;
+  const cardWidth = card.offsetWidth + 20; // +gap, подгони при необходимости
+  slider.scrollLeft += direction * cardWidth * 1; // прокрутка на 3 карточки
+}
+// Отзывы
+let currentReview = 0;
+
+function showReview(index) {
+  const cards = document.querySelectorAll('.review-card');
+  cards.forEach((card, i) => {
+    card.classList.toggle('active', i === index);
+  });
 }
 
-// Простая валидация формы и отправка (через Telegram Bot API или Email)
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector("#form form");
+function scrollReviews(direction) {
+  const cards = document.querySelectorAll('.review-card');
+  currentReview += direction;
+  if (currentReview < 0) currentReview = cards.length - 1;
+  if (currentReview >= cards.length) currentReview = 0;
+  showReview(currentReview);
+}
 
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const name = form.querySelector("input[type='text']").value.trim();
-      const phone = form.querySelector("input[type='tel']").value.trim();
-
-      if (name.length < 2 || phone.length < 6) {
-        alert("Пожалуйста, заполните все поля корректно.");
-        return;
-      }
-
-      // Отправка формы — пример с Telegram (замени на свой токен и ID)
-      const telegramToken = "YOUR_BOT_TOKEN";
-      const chatId = "YOUR_CHAT_ID";
-      const message = `📩 Новая заявка:\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
-
-      fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: message,
-        }),
-      })
-      .then(res => res.ok ? alert("Заявка отправлена!") : alert("Ошибка отправки."))
-      .catch(() => alert("Ошибка соединения."));
-    });
-  }
+// При загрузке страницы показываем первый отзыв
+document.addEventListener('DOMContentLoaded', () => {
+  showReview(currentReview);
 });
