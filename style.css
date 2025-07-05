@@ -111,36 +111,45 @@ h2 {
 /* Галерея */
 .gallery-wrapper {
   position: relative;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
   max-width: 1200px;
-  margin: auto;
+  padding: 0 20px;
 }
 
 .gallery-slider {
   display: flex;
-  overflow-x:hidden;
+  overflow-x: auto;
   scroll-behavior: smooth;
   gap: 20px;
-  padding: 10px 0;
+  width: 100%;
+  padding: 20px 0;
 }
 
 .gallery-card {
-  flex: 0 0 33.3333%; /* 3 карточки */
-  background: #fff;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
+  flex: 0 0 calc(33.333% - 20px);
+  background: white;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  min-width: 280px;
+  max-width: 100%;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
 }
 
 .gallery-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 8px;
-  margin: 10px 0;
-} 
+  border-radius: 10px;
+}
 
 .gallery-card h1 {
   font-size: 1.2rem;
@@ -174,29 +183,30 @@ h2 {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
+  background: #fff;
+  color: #333;
+  font-size: 30px;
   border: none;
-  font-size: 32px;
-  padding: 10px 15px;
   cursor: pointer;
-  z-index: 2;
+  padding: 12px 16px;
   border-radius: 50%;
-  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform 0.3s;
+  z-index: 2;
 }
 
 .arrow:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: #f0f0f0;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .arrow.left {
-  left: 10px;
+  left: -30px;
 }
 
 .arrow.right {
-  right: 10px;
+  right: -30px;
 }
-
 /* Отзывы */
 .reviews-wrapper {
   position: relative;
@@ -313,23 +323,35 @@ footer {
 }
 
 /* Адаптив */
-@media (max-width: 768px) {
-  .burger {
-    display: block;
+@media (max-width: 1024px) {
+  .gallery-card {
+    flex: 0 0 calc(50% - 20px);
   }
-  .nav-links {
+
+  .arrow.left {
+    left: -20px;
+  }
+
+  .arrow.right {
+    right: -20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-card {
+    flex: 0 0 100%;
+  }
+
+  .gallery-slider {
+    gap: 15px;
+    padding: 15px 0;
+  }
+
+  .gallery-card img {
+    height: 180px;
+  }
+
+  .arrow {
     display: none;
-    width: 100%;
-  }
-  .nav-links.active {
-    display: flex !important;
-    flex-direction: column;
-    gap: 10px;
-    background: var(--green);
-    padding: 10px 0;
-  }
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
