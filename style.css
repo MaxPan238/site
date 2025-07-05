@@ -121,8 +121,7 @@ h2 {
 
 .gallery-slider {
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
+  overflow-x:hidden;
   gap: 20px;
   width: 100%;
   padding: 20px 0;
@@ -180,24 +179,22 @@ h2 {
 
 /* Кнопки стрелок для галереи и отзывов */
 .arrow {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.4em 0.6em;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  z-index: 10;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #fff;
-  color: #333;
-  font-size: 30px;
-  border: none;
-  cursor: pointer;
-  padding: 12px 16px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform 0.3s;
-  z-index: 2;
 }
 
 .arrow:hover {
-  background: #f0f0f0;
-  transform: translateY(-50%) scale(1.1);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .arrow.left {
@@ -324,47 +321,103 @@ footer {
 }
 
 /* Адаптив */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--green);
+    padding: 10px 0;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
   .gallery-card {
-    flex: 0 0 calc(50% - 20px);
+    flex: 0 0 80%;
+    min-width: 250px;
   }
 
   .arrow.left {
-    left: -20px;
+    left: -10px;
   }
 
   .arrow.right {
-    right: -20px;
+    right: -10px;
   }
 }
 
 @media (max-width: 600px) {
-  .gallery-card {
-    flex: 0 0 100%;
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .section {
+    padding: 50px 10px;
+  }
+
+  .gallery-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 10px;
   }
 
   .gallery-slider {
     gap: 15px;
-    padding: 15px 0;
+    padding: 10px 0;
+  }
+
+  .gallery-card {
+    flex: 0 0 100%;
+    min-width: auto;
   }
 
   .gallery-card img {
-    height: 180px;
+    height: 160px;
   }
 
   .arrow {
-    font-size: 24px;
-    padding: 8px 12px;
-    left: 5px;
-    right: 5px;
+    font-size: 1.5rem;
+    padding: 8px;
     top: 45%;
+    transform: translateY(-50%);
+    z-index: 20;
   }
 
   .arrow.left {
-    left: 0;
+    left: 5px;
   }
 
   .arrow.right {
-    right: 0;
+    right: 5px;
+  }
+
+  .review-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  form {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .whatsapp-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 0;
+  }
+
+  footer {
+    font-size: 0.9rem;
   }
 }
