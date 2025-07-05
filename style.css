@@ -247,6 +247,8 @@ h2 {
   object-fit: cover;
   margin: 0 auto 10px;
   display: block;
+   position: relative;
+  z-index: 1;
 }
 
 .review-card p {
