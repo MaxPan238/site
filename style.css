@@ -17,9 +17,10 @@ html {
 }
 
 body {
+  background: url('background.png') repeat;
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--white);
-  color: var(--dark);
+  background-color: #1c77ac;
+  color: #1561ad;
   line-height: 1.6;
   font-size: 16px;
 }
@@ -31,10 +32,10 @@ body {
 }
 
 header {
-  background-color: var(--green);
-  color: var(--white);
+  background-color: #1c77ac;
+  color: #1561ad;
   padding: 20px 0;
-  position: sticky;
+  position: relative;
   top: 0;
   z-index: 1000;
 }
@@ -67,13 +68,13 @@ nav {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--white);
+  color: #1561ad;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--accent);
+  color: #1561ad;
 }
 
 .nav-links.active {
@@ -105,7 +106,7 @@ nav {
 h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  color: var(--green);
+  color: #1561ad;
 }
 
 /* Галерея */
@@ -153,34 +154,34 @@ h2 {
 .gallery-card h1 {
   font-size: 1.2rem;
   margin: 8px 0;
-  color: var(--green);
+  color: #1561ad;
 }
 
 .gallery-card p.p1 {
   font-size: 1rem;
-  color: var(--dark);
+  color: #1561ad;
   margin-bottom: 10px;
 }
 
 .but {
-  background: var(--green);
-  color: var(--white);
+  background-color: #fc5226;
+  color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 30px;
+  border-radius: 20px;
+  font-weight: bold;
   cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s;
 }
 
 .but:hover {
-  background: var(--accent);
+   background-color: #e14b1f;
 }
 
 /* Кнопки стрелок для галереи и отзывов */
 .arrow {
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  background-color: #1c77ac;
+  color: #1561ad;
   border: none;
   font-size: 1.5rem;
   width: 40px;
@@ -199,7 +200,7 @@ h2 {
 }
 
 .arrow:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: #1c77ac;
 }
 
 .arrow.left {
@@ -210,56 +211,83 @@ h2 {
   right: -30px;
 }
 /* Отзывы */
-.reviews-wrapper {
-  position: relative;
-  max-width: 700px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+/* Контейнер отзывов */
+/* Секция отзывов */
+#reviews {
+  background: transparent;
+  padding: 4rem 1rem;
 }
 
-.reviews-slider {
-  width: 90%;
-  overflow: hidden;
-  position: relative;
-}
-
-.review-card {
-  display: none;
+#reviews h2 {
   text-align: center;
-  padding: 20px;
-  background: var(--beige);
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: opacity 0.5s ease;
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #1561ad;
 }
 
-.review-card.active {
-  display: block;
+/* Сетка отзывов */
+.reviews-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
+/* Отключаем стрелки, если остались */
+.reviews-wrapper .arrow {
+  display: none;
+}
+
+/* Обёртка слайдера не нужна */
+.reviews-slider {
+  display: contents;
+}
+
+/* Карточка отзыва */
+.review-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Фото пользователя */
 .review-card img {
   width: 80px;
   height: 80px;
-  border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 10px;
-  display: block;
-   position: relative;
-  z-index: 1;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  margin-bottom: 1rem;
 }
 
+/* Текст отзыва */
 .review-card p {
+  font-size: 1rem;
+  color: #444;
   font-style: italic;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 
+/* Имя пользователя */
 .review-card h4 {
-  font-weight: 700;
-  color: var(--green);
+  font-size: 1.1rem;
+  color: #1561ad;
+  font-weight: 600;
+  margin: 0;
 }
+
 
 /* Форма */
 form {
@@ -280,7 +308,7 @@ form input[type="tel"] {
 
 form button {
   background: var(--green);
-  color: var(--white);
+  color: #1561ad;
   border: none;
   padding: 12px;
   border-radius: 30px;
@@ -306,7 +334,7 @@ form button:hover {
   display: inline-block;
   margin-top: 15px;
   background: #25d366;
-  color: white;
+  color: #1561ad;
   padding: 12px 25px;
   border-radius: 30px;
   font-weight: 700;
@@ -321,7 +349,7 @@ form button:hover {
 /* Футер */
 footer {
   background: var(--green);
-  color: var(--white);
+  color: #1561ad;
   text-align: center;
   padding: 15px 0;
   margin-top: 40px;
@@ -337,7 +365,7 @@ footer {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: var(--green);
+    background-color: #1c77ac;
     padding: 10px 0;
   }
 
@@ -426,5 +454,465 @@ footer {
 
   footer {
     font-size: 0.9rem;
+    background-color: #1c77ac;
   }
+}
+
+/* Custom Header Styles */
+.custom-header {
+  background: linear-gradient(to bottom right, #245530, #1f3f2a);
+  color: #1561ad;
+  padding: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.custom-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-nav .logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1561ad;
+}
+
+.custom-nav .menu {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.custom-nav .menu li {
+  font-size: 0.9rem;
+}
+
+.custom-nav .lang {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.apply-btn {
+  background: #f0d887;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.hero-content {
+  margin-top: 2rem;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1561ad;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #1561ad;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.whatsapp-btn {
+  background: #4CAF50;
+  color: #1561ad;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.calculate-btn {
+  background: #f0d887;
+  color: #1561ad;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.kaspi-badge {
+  background: #f44336;
+  color: #1561ad;
+  padding: 1rem;
+  border-radius: 15px;
+  max-width: 250px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .custom-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .custom-nav .menu {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kaspi-badge {
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+}
+/* Custom header styles */
+
+header {
+  background: linear-gradient(to bottom, #1561ad, #1c77ac);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+header nav {
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+header nav a:hover {
+  color: #1dbab4;
+}
+
+header .cta-button {
+  background-color: #fc5226;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+header .cta-button:hover {
+  background-color: #d8431f;
+}
+
+
+/* Refined Header Styling */
+header {
+  background: linear-gradient(to bottom, #1561ad, #1c77ac);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #1dbab4;
+}
+
+.cta-button {
+  background-color: #fc5226;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e14b1f;
+}
+.btn{
+  background-color: #fc5226;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+   background-color: #e14b1f;
+}
+
+/* Стили секции "О нас" */
+.about-section {
+  padding: 60px 20px;
+  background: transparent;
+  text-align: center;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-card {
+  background-color: #1c77ac; /* Right Blue - Muted */
+  color: white;
+  padding: 25px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.about-card h3 {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-size: 15px;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+.request-form {
+  background:transparent;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  width: 150vh;
+  position: relative;
+  left: 200px;
+}
+
+.request-form__container {
+  background-color: transparent;
+  max-width: 1100px;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.request-form__text {
+  flex: 1 1 45%;
+  background-color: transparent;
+  color: #f7e6b6;
+  padding: 40px 30px;
+}
+
+.request-form__text h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.request-form__text .subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.request-form__text .info {
+  font-size: 18px;
+  color: #fff;
+}
+
+.request-form__text .info span {
+  font-weight: 700;
+  border-bottom: 2px solid #fff;
+}
+
+.request-form__form {
+  flex: 1 1 55%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 30px;
+  background-color: transparent
+}
+
+.request-form__form input {
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+.request-form__form input:focus {
+  outline: 2px solid #2d5834;
+}
+
+.request-form__form .policy {
+  font-size: 14px;
+  color: #2d5834;
+  margin: 10px 0 20px;
+}
+
+.request-form__form .policy a {
+  color: #2d5834;
+  text-decoration: underline;
+}
+
+.request-form__form button {
+  background-color: #f78f53;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.request-form__form button:hover {
+  background-color: #e26e33;
+}
+
+@media (max-width: 768px) {
+  .request-form__container {
+    flex-direction: column;
+  }
+
+  .request-form__text,
+  .request-form__form {
+    flex: 1 1 100%;
+  }
+}
+.contacts-section {
+  background: transparent;
+  padding: 4rem 1rem;
+}
+
+.contacts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info {
+  background: #fff;
+  flex: 1 1 350px;
+  padding: 2rem;
+  border-radius: 24px 0 0 24px;
+}
+
+.contact-info h2 {
+  color:#1561ad
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  color: #333;
+  margin: 1rem 0;
+}
+
+.contact-info a {
+  color:#1561ad;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.social-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.15);
+}
+
+.contact-map {
+  flex: 2 1 700px;
+  min-height: 400px;
+  border-radius: 0 24px 24px 0;
+  overflow: hidden
 }
